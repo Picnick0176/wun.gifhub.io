@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลองเล่นดูจิ</title>
+</head>
+<body>
+    <div class="main" >
+        <button id="toggleButton"><img src="https://i.pinimg.com/originals/0f/83/92/0f8392002d8407142bbbb20ecca5e58a.gif" style="width: 250px;" alt="">
+            <h1>จิ้มแก้มผมหน่อยงับ</h1>
+        </button>
+        <div id="musicbox" class="s2">
+            <img class="imgpro" src="https://cdn.discordapp.com/attachments/1100260539004891166/1213518058996367420/8A02A7CE-2FC8-4411-9F0D-9A64C89DECD6_4_5005_c.gif?ex=65f5c3c3&is=65e34ec3&hm=b5ec398ae94deb910fb488f6b84c8244c658846572d068f744a60cf746fca354&" alt="">
+            <!-- <button id="playButton">ลองกดดูจิ</button> -->
+            <audio id="myAudio" src="/img/m2.mp3"></audio>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+    window.onload = function() {
+        var audio = document.getElementById("myAudio");
+        audio.play();
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+    var audio = document.getElementById('myAudio');
+    var playButton = document.getElementById('toggleButton');
+
+    playButton.addEventListener('click', function () {
+        if (audio.paused) {
+            audio.play();
+            playButton.textContent = '<3';
+        } else {
+            audio.pause();
+            playButton.textContent = 'ลองกดดูจิ';
+        }
+       
+    });
+});
+        // ค้นหาปุ่มและข้อความที่ต้องการทำการเปิดและปิด
+        const toggleButton = document.getElementById('toggleButton');
+        const toggleText = document.getElementById('musicbox');
+
+        // เพิ่มการฟังก์ชันเมื่อคลิกปุ่ม
+        toggleButton.addEventListener('click', function() {
+            console.log("cklick1");
+            toggleText.classList.remove('s2');
+            toggleButton.classList.add('s2');
+        });
+
+
+    </script>
+    <style>
+        body{
+            background-color: #F893B5;
+        }
+        .main{
+            width: 370px;
+            height: 500px;
+            align-items: center;
+            text-align: center;
+        }
+
+        #musicbox{
+            width: 100%;
+            height: 100%;
+            background-image: url("https://media.discordapp.net/attachments/1100261588973396018/1213748779359146004/Untitled-1.png?ex=65f69aa3&is=65e425a3&hm=7d27e53a2c952d7ecd3de460c5ba5ae84fb17c637a74f259dee25e4edf17e727&=&format=webp&quality=lossless&width=246&height=350");
+            border-radius: 20px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 150px;
+        }
+        .s1 {
+            display: block;
+        }
+        .s2 {
+            display: none;
+        }
+        #toggleButton {
+            margin-top: 150px;
+        background-color: #18fba800;
+        border: none;
+        color: rgb(255, 255, 255);
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        }
+        .imgpro{
+            width: 280px;
+            height: 260px;
+            border-radius: 50px;
+            padding: 30px 40px;
+        }
+    </style>
+</body>
+
+</html>

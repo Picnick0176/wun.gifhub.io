@@ -1,0 +1,85 @@
+body{
+    background-color: #F9E79F;
+}
+.main{
+    width: 370px;
+    height: 500px;
+    align-items: center;
+    text-align: center;
+}
+
+#musicbox{
+    width: 100%;
+    height: 100%;
+    background-image: url("https://media.discordapp.net/attachments/1100261588973396018/1213748779359146004/Untitled-1.png?ex=65f69aa3&is=65e425a3&hm=7d27e53a2c952d7ecd3de460c5ba5ae84fb17c637a74f259dee25e4edf17e727&=&format=webp&quality=lossless&width=246&height=350");
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 150px;
+}
+.s1 {
+    display: block;
+}
+.s2 {
+    display: none;
+}
+
+#n1{
+    margin-top: 220px;
+    align-items: center;
+    text-align: center;
+}
+#toggleButton {
+    margin-top: 15px;
+    background-color: #00a12b;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+#toggleButton2 {
+    margin-top: 15px;
+    background-color: #00a12b;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+#toggleButton3 {
+    margin-top: 15px;
+    background-color: #00a12b;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+#toggleButtonno {
+    margin-top: 4px;
+    background-color: #de2c2c;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    cursor: pointer;
+}
+.imgpro{
+    width: 280px;
+    height: 260px;
+    border-radius: 50px;
+    padding: 30px 40px;
+}

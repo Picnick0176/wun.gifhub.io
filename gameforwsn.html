@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลองเล่นดูจิ</title>
+    <link rel="stylesheet" href="gameforwsn.css">
+</head>
+<body>
+    <div id="n1" >
+        <img id="img1"  src="img/IMG_7998.jpg" style="width: 250px;">
+        <img id="img2" class="s2" src="img/IMG_7999.jpg" style="width: 250px;">
+        <img id="img3" class="s2" src="img/IMG_8001.jpg" style="width: 250px;">
+        <img id="img4" class="s2" src="https://media.tenor.com/D10Ldbl4CuQAAAAM/guitar.gif" style="width: 200px;">
+        <br>
+        <button id="toggleButton" >เล่น</button>
+        <button id="toggleButton2" class="s2" >เล่นต่อ</button>
+        <button id="toggleButton3" class="s2" >ต่อไป<3</button>
+        <br>
+        <button id="toggleButtonno">ไม่เล่น</button>
+    </div>
+   
+
+    <audio id="myAudio" src="img/music2.mp3"></audio>
+
+
+
+    <script>
+    // window.onload = function() {
+    //     var audio = document.getElementById("myAudio");
+    //     audio.play();
+    // }
+    document.addEventListener('DOMContentLoaded', function () {
+    var audio = document.getElementById('myAudio');
+    var playButton = document.getElementById('toggleButton3');
+
+    playButton.addEventListener('click', function () {
+        if (audio.paused) {
+            audio.play();
+            playButton.textContent = 'ใกล้-scrubb';
+        } else {
+            audio.pause();
+            playButton.textContent = 'ฟังต่อ';
+        }
+       
+    });
+});
+        // ค้นหาปุ่มและข้อความที่ต้องการทำการเปิดและปิด
+        const toggleButton = document.getElementById('toggleButton');
+        const toggleButton2 = document.getElementById('toggleButton2');
+        const toggleButton3 = document.getElementById('toggleButton3');
+        const toggleButtonno = document.getElementById('toggleButtonno');
+        const img1 = document.getElementById('img1');
+        const img2 = document.getElementById('img2');
+        const img3 = document.getElementById('img3');
+        const img4 = document.getElementById('img4');
+
+        // เพิ่มการฟังก์ชันเมื่อคลิกปุ่ม
+        toggleButton.addEventListener('click', function() {
+            console.log("cklick1");
+            toggleButton.classList.add('s2');
+            img1.classList.add('s2');
+            toggleButton2.classList.remove('s2');
+            img2.classList.remove('s2');
+        });
+
+        toggleButton2.addEventListener('click', function() {
+            console.log("cklick2");
+            toggleButton2.classList.add('s2');
+            img2.classList.add('s2');
+            toggleButton3.classList.remove('s2');
+            img3.classList.remove('s2');
+
+
+        });
+        toggleButton3.addEventListener('click', function() {
+            toggleButtonno.classList.add('s2');
+            img3.classList.add('s2');
+            img4.classList.remove('s2');
+        });
+
+
+    </script>
+
+</body>
+
+</html>

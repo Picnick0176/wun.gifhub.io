@@ -83,3 +83,36 @@ body{
     border-radius: 50px;
     padding: 30px 40px;
 }
+
+
+#text {
+    margin-top: 15px;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    cursor: pointer;
+    animation: .5s textrgb infinite;
+}
+
+
+@keyframes textrgb {
+    0% {
+      color: rgb(255, 0, 0);
+    }
+    20% {
+        color: rgb(60, 179, 113);
+    }
+    40% {
+        color: rgb(255, 165, 0);
+    }60% {
+        color: rgb(0, 0, 255);
+    }80% {
+        color: rgb(238, 130, 238);
+    }100% {
+        color: rgb(106, 90, 205);
+    }
+  }

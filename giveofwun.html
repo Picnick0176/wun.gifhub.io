@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลองเล่นดูจิ</title>
+    <link rel="stylesheet" href="/wun.gifhub.io/gameforwsn.css">
+</head>
+<body>
+    <div id="n1" >
+        <img id="img1"  src="https://cdn.pixabay.com/animation/2023/11/21/23/15/23-15-37-804_256.gif" style="width: 250px;">
+        <img id="img2" class="s2" src="https://media.discordapp.net/attachments/1011280127214239774/1214596268580413531/Cuddling_Hug_Sticker_-_Cuddling_Hug_Comfort_-_Discover__Share_GIFs.gif?ex=65f9afec&is=65e73aec&hm=31dc04cb92ad1a8cce4083d9bd62ff798577d45250919f8fc65dd0ef690ee865&=" style="width: 250px;">
+        <h1 id="text" class="s2" >ไม่หงอยน้าาาาา</h1>
+        <br>
+        <button id="toggleButton">รับของขวัญ</button>
+        <br>
+        <!-- <button id="toggleButtonno">ไม่เล่น</button> -->
+    </div>
+   
+
+    <audio id="myAudio" src="img/YOYOYO.mp3"></audio>
+
+
+
+    <script>
+    // window.onload = function() {
+    //     var audio = document.getElementById("myAudio");
+    //     audio.play();
+    // }
+    document.addEventListener('DOMContentLoaded', function () {
+    var audio = document.getElementById('myAudio');
+    var playButton = document.getElementById('toggleButton');
+
+    playButton.addEventListener('click', function () {
+        if (audio.paused) {
+            audio.play();
+            playButton.textContent = 'ใกล้-scrubb';
+        } else {
+            audio.pause();
+            playButton.textContent = 'ฟังต่อ';
+        }
+       
+    });
+});
+        // ค้นหาปุ่มและข้อความที่ต้องการทำการเปิดและปิด
+        const toggleButton = document.getElementById('toggleButton');
+        const img1 = document.getElementById('img1');
+        const img2 = document.getElementById('img2');
+        const text = document.getElementById('text');
+
+        // เพิ่มการฟังก์ชันเมื่อคลิกปุ่ม
+        toggleButton.addEventListener('click', function() {
+            console.log("cklick1");
+            toggleButton.classList.add('s2');
+            img1.classList.add('s2');
+            text.classList.remove('s2');
+            img2.classList.remove('s2');
+        });
+
+
+    </script>
+
+</body>
+
+</html>

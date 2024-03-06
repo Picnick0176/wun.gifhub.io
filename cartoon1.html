@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลองเล่นดูจิ</title>
+    <link rel="stylesheet" href="cartoon1.css">
+</head>
+<body>
+    <div id="p1">
+       <p style="color: #c139b8; font-size: 20px; width: 200px; margin-left: 97px;">มีคนต้องการติดต่อคุณ คุณจำเป็นต้องรับสาย!!</p>
+        <div id="phone" >
+            <div class="bu">
+                <button id="toggleButton" ></button>
+                <button id="toggleButtonno"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="p2"class="s2" >
+        <p style="color: #c139b8; font-size: 20px; width: 230px; margin-left: 97px;">สวัสดีครับคุณวุ้นเส้นมีพัสดุ  1 ชิ้นคุณจำเป็นต้องรับคับ</p>
+         <div id="phone2" >
+             <div class="bu2">
+                 <button id="toggleButton2" >รับ</button>
+             </div>
+         </div>
+    </div>
+
+    <div id="p3"class="s2" >
+        <p style="color: #c139b8; font-size: 20px; width: 230px; margin-left: 97px;">คุณต้องการเปิดมันไหม?</p>
+         <div id="boxset" >
+         </div>
+         <button id="toggleButton3" >เปิดพัสดุ</button>
+    </div>
+
+    <div id="p4"class="s2" >
+        <p style="color: #c139b8; font-size: 20px;  margin-left: 50px;">เราเอาความห่วงใยมาให้นะค้าบ</p>
+        <p style="color: #c139b8; font-size: 20px;  margin-left: 30px;">ยิ้มเยอะๆนะค้าบคนเก่ง อยู่ตรงนี้เสมอนะ</p>
+         <div id="boxset2" >
+         </div>
+    </div>
+
+    <!-- <img id="img2" class="s2" src="img/IMG_7999.jpg" style="width: 250px;">
+    <img id="p3" class="s2" src="img/IMG_8001.jpg" style="width: 250px;">
+    <img id="p4" class="s2" src="https://media.tenor.com/D10Ldbl4CuQAAAAM/guitar.gif" style"width: 200px;">
+
+    <button id="toggleButton2" class="s2" >เล่นต่อ</button>
+    <button id="toggleButton3" class="s2" >ต่อไป<3</button> -->
+
+
+
+
+    <audio id="myAudio" src="imgcartoon/gif.mp3"></audio>
+
+
+
+    <script>
+    // window.onload = function() {
+    //     var audio = document.getElementById("myAudio");
+    //     audio.play();
+    // }
+    document.addEventListener('DOMContentLoaded', function () {
+    var audio = document.getElementById('myAudio');
+    var playButton = document.getElementById('toggleButton3');
+
+    playButton.addEventListener('click', function () {
+        if (audio.paused) {
+            audio.play();
+            playButton.textContent = 'ใกล้-scrubb';
+        } else {
+            audio.pause();
+            playButton.textContent = 'ฟังต่อ';
+        }
+           });
+});
+        // ค้นหาปุ่มและข้อความที่ต้องการทำการเปิดและปิด
+        const toggleButton = document.getElementById('toggleButton');
+        const toggleButton2 = document.getElementById('toggleButton2');
+        const toggleButton3 = document.getElementById('toggleButton3');
+        const toggleButtonno = document.getElementById('toggleButtonno');
+        const p1 = document.getElementById('p1');
+        const p2 = document.getElementById('p2');
+        const p3 = document.getElementById('p3');
+        const p4 = document.getElementById('p4');
+
+        // เพิ่มการฟังก์ชันเมื่อคลิกปุ่ม
+        toggleButton.addEventListener('click', function() {
+            console.log("cklick1");
+            toggleButton.classList.add('s2');
+            p1.classList.add('s2');
+            toggleButton2.classList.remove('s2');
+            p2.classList.remove('s2');
+        });
+
+        toggleButton2.addEventListener('click', function() {
+            console.log("cklick2");
+            toggleButton2.classList.add('s2');
+            p2.classList.add('s2');
+            toggleButton3.classList.remove('s2');
+            p3.classList.remove('s2');
+
+
+        });
+        toggleButton3.addEventListener('click', function() {
+            toggleButtonno.classList.add('s2');
+            p3.classList.add('s2');
+            p4.classList.remove('s2');
+        });
+
+
+    </script>
+
+</body>
+
+</html>

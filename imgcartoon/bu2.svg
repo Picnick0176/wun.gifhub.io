@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 104.9 104.88">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Degradado_sin_nombre_4);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#Degradado_sin_nombre_8);
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_8" data-name="Degradado sin nombre 8" x1="-1222.46" y1="350.59" x2="-1246.01" y2="214.59" gradientTransform="translate(-1181.77 -230.29) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset=".04" stop-color="#f9225f"/>
+      <stop offset=".43" stop-color="#eb071e"/>
+      <stop offset="1" stop-color="#a40311"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_4" data-name="Degradado sin nombre 4" x1="-171.56" y1="1396.47" x2="-230.47" y2="1337.97" gradientTransform="translate(-770.52 1161.39) rotate(45) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset=".04" stop-color="#c5efff"/>
+      <stop offset=".86" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <circle class="cls-2" cx="52.44" cy="52.44" r="52.44"/>
+  <path class="cls-1" d="M18.94,58.95c.16,2.02.71,4.04,2.1,5.48,1.86,1.93,4.76,2.36,7.43,2.43,2.25.06,4.62-.1,6.51-1.31,3.8-2.43,4.2-7.76,2.83-11.67-.32-.9-1.09-2.48-.46-3.41.76-1.12,3.73-1.4,4.99-1.67,1.86-.41,3.76-.7,5.66-.86,4.04-.34,8.17-.16,12.13.72,1.44.32,2.86.72,4.25,1.2,1.08.38,2.62.6,2.84,1.95.11.7-.11,1.41-.3,2.1-.44,1.59-.76,3.24-.7,4.89.06,1.65.52,3.32,1.5,4.65,1.73,2.34,4.7,3.21,7.49,3.38,2.68.16,5.52-.26,7.63-1.91,3.49-2.71,3.94-8.11,2.01-12.08-1.93-3.97-5.7-6.73-9.59-8.82-7.59-4.07-16.23-6.19-24.85-5.99-8.61.2-17.17,2.72-24.47,7.3-2.15,1.35-4.24,2.94-5.52,5.13-1.24,2.14-1.59,4.68-1.57,7.15,0,.45.02.9.06,1.35Z"/>
+</svg>

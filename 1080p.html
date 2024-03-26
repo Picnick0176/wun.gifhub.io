@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1080p</title>
+<style>
+    body{
+        background-color: rgb(0, 0, 0);
+    }
+  .image-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .main{
+    margin-top: 150px;
+  }
+  img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+</style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="image-container">
+
+            <div class="image-container">
+                <img id="selected-image" src="" alt="" >
+              </div>
+        
+          <!-- <label for="image-select">เลือกรูปภาพ:</label> -->
+          <select id="image-select">
+            <option value=""></option>
+            <option value="img/144p.png">144p</option>
+            <option value="img/240p.png">240p</option>
+            <option value="img/360p.png">360p</option>
+            <option value="img/720p.png">720p</option>
+            <option value="img/1080p.png">1080p</option>
+          </select>
+        </div>
+    </div>
+
+
+
+
+<script>
+  // เมื่อเลือกไอเทมใน select element
+  document.getElementById("image-select").addEventListener("change", function() {
+    // หา element รูปภาพ
+    var image = document.getElementById("selected-image");
+    // รับค่าที่เลือก
+    var selectedImage = this.value;
+    // เปลี่ยน src ของรูปภาพ
+    image.src = selectedImage;
+    // เปลี่ยน alt ของรูปภาพ (ไม่บังคับ)
+    image.alt = "รูปที่ " + (this.selectedIndex + 1);
+  });
+</script>
+
+</body>
+</html>

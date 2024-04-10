@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลองเล่นดูจิ</title>
+</head>
+<body>
+    <div id="n1" >
+        <img id="img1"  src="img/boxset99.WEBP" style="width: 300px;">
+        <img id="img2" class="s2" src="img/boxset100.WEBP" style="width: 300px;">
+        <img id="img3" class="s2" src="img/boxset101.WEBP" style="width: 300px;">
+        <img id="img4" class="s2" src="img/boxset102.WEBP" style="width: 300px;">
+        <img id="img5" class="s2" src="img/boxset103.WEBP" style="width: 300px;">
+        <img id="img6" class="s2" src="img/boxset104.WEBP" style="width: 300px;">
+        <img id="img7" class="s2" src="img/boxset105.jpg" style="width: 300px;">
+        <br>
+        <button id="toggleButton" >รับ</button>
+        <button id="toggleButton2" class="s2" >เปิด</button>
+        <button id="toggleButton3" class="s2" >เปิดต่อมะ</button>
+        <button id="toggleButton4" class="s2" >เปิดอีกนะ</button>
+        <button id="toggleButton5" class="s2" >จะเปิดจริงละนะ</button>
+        <button id="toggleButton6" class="s2" >มีอะไรอยู่ด้านในนะ</button>
+
+        <br>
+        <!-- <button id="toggleButtonno">ไม่เล่น</button> -->
+    </div>
+   
+
+    <audio id="myAudio" src="img/music2.mp3"></audio>
+
+
+
+    <script>
+    // window.onload = function() {
+    //     var audio = document.getElementById("myAudio");
+    //     audio.play();
+    // }
+//     document.addEventListener('DOMContentLoaded', function () {
+//     var audio = document.getElementById('myAudio');
+//     var playButton = document.getElementById('toggleButton6');
+
+//     playButton.addEventListener('click', function () {
+//         if (audio.paused) {
+//             audio.play();
+//             playButton.textContent = 'แค่คุณ';
+//         } else {
+//             audio.pause();
+//             playButton.textContent = 'เล่น';
+//         }
+       
+//     });
+// });
+        // ค้นหาปุ่มและข้อความที่ต้องการทำการเปิดและปิด
+        const toggleButton = document.getElementById('toggleButton');
+        const toggleButton2 = document.getElementById('toggleButton2');
+        const toggleButton4 = document.getElementById('toggleButton4');
+        const toggleButton5 = document.getElementById('toggleButton5');
+        const toggleButton6 = document.getElementById('toggleButton6');
+        const toggleButton3 = document.getElementById('toggleButton3');
+        const toggleButtonno = document.getElementById('toggleButtonno');
+        const img1 = document.getElementById('img1');
+        const img2 = document.getElementById('img2');
+        const img3 = document.getElementById('img3');
+        const img4 = document.getElementById('img4');
+        const img5 = document.getElementById('img5');
+        const img6 = document.getElementById('img6');
+        const img7 = document.getElementById('img7');
+
+        // เพิ่มการฟังก์ชันเมื่อคลิกปุ่ม
+        toggleButton.addEventListener('click', function() {
+            console.log("cklick1");
+            toggleButton.classList.add('s2');
+            img1.classList.add('s2');
+            toggleButton2.classList.remove('s2');
+            img2.classList.remove('s2');
+        });
+
+        toggleButton2.addEventListener('click', function() {
+            console.log("cklick2");
+            toggleButton2.classList.add('s2');
+            img2.classList.add('s2');
+            toggleButton3.classList.remove('s2');
+            img3.classList.remove('s2');
+
+
+        });
+        toggleButton3.addEventListener('click', function() {
+            console.log("cklick2");
+            toggleButton3.classList.add('s2');
+            img3.classList.add('s2');
+            toggleButton4.classList.remove('s2');
+            img4.classList.remove('s2');
+
+
+        });
+        toggleButton4.addEventListener('click', function() {
+            console.log("cklick2");
+            toggleButton4.classList.add('s2');
+            img4.classList.add('s2');
+            toggleButton5.classList.remove('s2');
+            img5.classList.remove('s2');
+
+
+        });
+        toggleButton5.addEventListener('click', function() {
+            console.log("cklick2");
+            toggleButton5.classList.add('s2');
+            img5.classList.add('s2');
+            toggleButton6.classList.remove('s2');
+            img6.classList.remove('s2');
+
+
+        });
+        toggleButton6.addEventListener('click', function() {
+            toggleButton6.classList.add('s2');
+            img6.classList.add('s2');
+            img7.classList.remove('s2');
+        });
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+<style>
+    body{
+    background-color: #ffffff;
+}
+.main{
+    width: 370px;
+    height: 500px;
+    align-items: center;
+    text-align: center;
+}
+
+#musicbox{
+    width: 100%;
+    height: 100%;
+    background-image: url("https://media.discordapp.net/attachments/1100261588973396018/1213748779359146004/Untitled-1.png?ex=65f69aa3&is=65e425a3&hm=7d27e53a2c952d7ecd3de460c5ba5ae84fb17c637a74f259dee25e4edf17e727&=&format=webp&quality=lossless&width=246&height=350");
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 150px;
+}
+.s1 {
+    display: block;
+}
+.s2 {
+    display: none;
+}
+
+#n1{
+    margin-top: 220px;
+    align-items: center;
+    text-align: center;
+}
+#toggleButton {
+    margin-top: 15px;
+    background-color: #00a12b;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+#toggleButton2 {
+    margin-top: 15px;
+    background-color: #00a12b;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+#toggleButton3,
+#toggleButton4,
+#toggleButton5,
+#toggleButton6 {
+    margin-top: 15px;
+    background-color: #00a12b;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+#toggleButtonno {
+    margin-top: 4px;
+    background-color: #de2c2c;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    cursor: pointer;
+}
+.imgpro{
+    width: 280px;
+    height: 260px;
+    border-radius: 50px;
+    padding: 30px 40px;
+}
+
+
+#text {
+    margin-top: 15px;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    cursor: pointer;
+    animation: .5s textrgb infinite;
+}
+
+
+@keyframes textrgb {
+    0% {
+      color: rgb(255, 0, 0);
+    }
+    20% {
+        color: rgb(60, 179, 113);
+    }
+    40% {
+        color: rgb(255, 165, 0);
+    }60% {
+        color: rgb(0, 0, 255);
+    }80% {
+        color: rgb(238, 130, 238);
+    }100% {
+        color: rgb(106, 90, 205);
+    }
+  }
+</style>

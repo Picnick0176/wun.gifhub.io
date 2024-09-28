@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tiktok for baby naka </title>
+</head>
+
+<body>
+    <div class="main">
+        <img id="vdo" src="img/toktokforbaby.gif" alt="">
+        <img id="popup" src="img/tiktokforbabypopup.png" alt="">
+        <img id="popup2" src="img/cat.gif" alt="">
+       
+    </div>
+    <audio id="background-music">
+        <source src="img/toktokforbaby.mp3" type="audio/mp3">
+    </audio>
+</body>
+<script>
+    const vdo = document.getElementById('vdo');
+    const popup = document.getElementById('popup');
+    const popup2 = document.getElementById('popup2');
+    // ตั้งสถานะเริ่มต้นของ popup ว่าโชว์อยู่
+    let isPopupVisible = true;
+    
+    vdo.addEventListener('click', function() {
+        if (isPopupVisible) {
+            popup.style.display = 'none';  // ซ่อน popup
+            popup2.style.display = 'block';  // ซ่อน popup
+        } else {
+            popup.style.display = 'block'; // โชว์ popup
+            popup2.style.display = 'none';  // ซ่อน popup
+        }
+        isPopupVisible = !isPopupVisible; // สลับสถานะ
+    });
+
+    window.addEventListener('load', function() {
+        const music = document.getElementById('background-music');
+        
+        // ตรวจสอบการอนุญาต autoplay ของเบราว์เซอร์
+        const playMusic = () => {
+            music.play().catch(error => {
+                console.log('Autoplay ถูกบล็อก: ', error);
+                // สามารถแสดงปุ่มให้ผู้ใช้กดเล่นเพลงเองได้หากต้องการ
+            });
+        };
+    
+        // เมื่อเปิดเว็บครั้งแรกให้ลองเล่นเพลง
+        playMusic();
+    
+        // หาก autoplay ถูกบล็อก รอให้ผู้ใช้คลิกที่ใดก็ได้ในหน้าเว็บเพื่อเริ่มเล่นเพลง
+        window.addEventListener('click', function() {
+            if (music.paused) {
+                playMusic();
+            }
+        });
+    });
+    
+    
+
+</script>
+
+</html>
+
+
+<style>
+    body {
+        background-color: #FFCCFF;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main {
+        position: relative;
+        display: inline-block;
+    }
+
+    #vdo {
+        width: 100%;
+        /* กำหนดขนาดตามต้องการ */
+    }
+
+    #popup {
+        position: absolute;
+        top: 16%;
+        left: 20%;
+        width: 60%;
+        height: 64%;
+        display: block;
+        /* popup โชว์ตอนเริ่มต้น */
+        background-size: cover;
+    }
+    #popup2 {
+        position: absolute;
+        top: 67%;
+        left: 41%;
+        width: 20%;
+        height: 20%;
+        display: none;
+        /* popup โชว์ตอนเริ่มต้น */
+        background-size: cover;
+    }
+</style>

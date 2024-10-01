@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7M</title>
+</head>
+
+<body>
+    <!-- รูปภาพ -->
+    <div class="image-container">
+        <img id="image" src="https://img2.pic.in.th/pic/box367f27de1c89cdae.png" onclick="showVideo()" />
+    </div>
+
+    <!-- ปุ่มสำหรับเปลี่ยนรูป -->
+    <button id="toggle-button" onclick="toggleImage()">เปิด</button>
+
+    <!-- วิดีโอ -->
+    <div id="video-container" class="hidden">
+        <!-- YouTube video iframe -->
+        <iframe src="https://www.youtube.com/embed/IGzZgzlo294?si=eqky36o9yBhawt5R&vq=hd1080"
+        title="YouTube video player" 
+        frameborder="0" allowfullscreen></iframe>
+    </div>
+   
+
+</body>
+
+
+</html>
+
+<script>
+
+    let isImage1 = true;
+
+    function toggleImage() {
+        const image = document.getElementById('image');
+        const button = document.getElementById('toggle-button');
+
+        if (isImage1) {
+            image.src = 'https://img2.pic.in.th/pic/box2427847a856a3e1c2.png'; // เปลี่ยนเป็นรูปที่ 2
+            button.innerHTML = 'ปิด'; // เปลี่ยนข้อความปุ่มเป็น 'ปิด'
+            button.style.display = 'none';
+        } else {
+            image.src = 'https://img2.pic.in.th/pic/box367f27de1c89cdae.png'; // เปลี่ยนกลับเป็นรูปที่ 1
+            button.innerHTML = 'เปิด'; // เปลี่ยนข้อความปุ่มเป็น 'เปิด'
+        }
+
+        isImage1 = !isImage1;
+    }
+
+    function showVideo() {
+        if (!isImage1) { // ถ้ารูปที่แสดงอยู่เป็นรูปที่ 2
+            const image = document.getElementById('image');
+            const button = document.getElementById('toggle-button');
+            const videoContainer = document.getElementById('video-container');
+
+            // ซ่อนรูปและปุ่ม
+            image.style.display = 'none';
+            button.style.display = 'none';
+
+            // แสดงวิดีโอ
+            videoContainer.classList.remove('hidden');
+        }
+    }
+
+
+
+</script>
+<style>
+    body {
+        background-color: #FFCCFF;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .hidden {
+        display: none;
+
+    }
+
+    #video-container {
+        position: relative;
+        width: 100%;
+        max-width: 400px; /* Adjust this for larger screens if needed */
+        padding-top: 177.78%; /* 9:16 aspect ratio (16 / 9 * 100 = 177.78%) */
+        margin: 0 auto; /* Center the video container */
+    }
+
+    /* Make the iframe take up the full container */
+    #video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* Ensure responsiveness on iPhones */
+    @media only screen and (max-width: 768px) {
+        #video-container {
+            max-width: 100%;
+        }
+    }
+</style>

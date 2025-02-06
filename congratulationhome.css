@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   background-image: url(/congratulation/bg.png);
+   margin-left: 10%;
+   box-sizing: border-box;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+   transition: all 0.5s;
+}
+
+.gallery {
+    margin-top: -20%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    
+    
+}
+.sky {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.falling-heart {
+    position: absolute;
+    top: -50px;
+    left: 1%;
+    width: 30px;
+    height: 30px;
+    background-image: url('/congratulation/h.png'); /* ใช้รูปภาพแทนสี */
+    background-size: cover; /* ปรับขนาดรูปภาพให้เต็มพื้นที่ */
+    background-position: center;
+    clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 75%, 20% 100%, 0% 35%);
+    animation: falling 2s infinite linear;
+}
+
+/* สร้างการตกของหัวใจ */
+@keyframes falling {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200px) translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.falling-heart:nth-child(odd) {
+    animation-duration: 2.5s;
+    animation-delay: -1s;
+}
+
+.falling-heart:nth-child(even) {
+    animation-duration: 3s;
+    animation-delay: -0.5s;
+}

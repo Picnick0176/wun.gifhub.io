@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's</title>
+    <link rel="stylesheet" href="./valentine2.css">
+    <style>
+        .card {
+            display: none;  /* ซ่อน card ไว้ก่อน */
+            width: 80%;
+        }
+    </style>
+    <script>
+        function handleClick() {
+            const button = document.querySelector('button');
+            const card = document.querySelector('.card');
+            
+            // ซ่อนปุ่ม
+            button.style.display = 'none';
+            
+            // แสดง card
+            card.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <button onclick="handleClick()">
+        <img src="valentine/จดหมาย.png" class="logo" alt="จดหมาย">
+    </button>
+    <img class="card" src="valentine/card.png" alt="Card">
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Menu</title>
+    <link rel="stylesheet" href="style365.css">
+</head>
+
+<body>
+    <div class="main-menu">
+
+
+        <div class="menu">
+            <a href="/TimeLove.html"> <img src="./img365/time.png">TimeLove</a>
+            <a href="/PageLove.html"><img src="./img365/image.png">PageLove</a>
+            <a href="/memory.html"><img src="./img365/memory.png">Memory</a>
+            <a href="/massage.html"><img src="./img365/massage.png">Massage</a>
+        </div>
+        <img src="./img365/baby.png" class="imgbaby" id="babyImage">
+
+        <div class="heart" id="heart">&#10084;</div>
+    </div>
+    <script src="script365.js"></script>
+    <script>
+        // เมื่อคลิกที่รูปภาพ
+        document.getElementById("babyImage").addEventListener("click", function() {
+            // ดึงองค์ประกอบหัวใจ
+            const heart = document.getElementById("heart");
+
+            // วางหัวใจไว้ตรงตำแหน่งของรูปภาพ
+            heart.style.left = `${event.pageX - 25}px`; // ปรับตำแหน่งหัวใจ
+            heart.style.top = `${event.pageY - 25}px`;  // ปรับตำแหน่งหัวใจ
+            heart.style.display = "block"; // แสดงหัวใจ
+
+            // เพิ่มการเคลื่อนไหวหัวใจ
+            heart.style.transform = "scale(1.5)"; // ขยายขนาดหัวใจ
+            setTimeout(function() {
+                heart.style.transform = "scale(0)"; // หดหัวใจหลังจาก 0.5 วินาที
+            }, 300);
+
+            // ซ่อนหัวใจหลังจากการเคลื่อนไหว
+            setTimeout(function() {
+                heart.style.display = "none";
+            }, 600);
+        });
+    </script>
+
+</body>
+
+</html>

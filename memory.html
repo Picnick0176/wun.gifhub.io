@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory 365 DAY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8cde3;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #5a3e47;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .memory {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .memory img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .memory:hover img {
+            transform: scale(1.05);
+        }
+        .month {
+            font-size: 14px;
+            color: #5a3e47;
+            margin-top: 5px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        }
+        .lightbox.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #Homepagelove {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 10%;
+}
+    </style>
+</head>
+<body>
+
+    <h1>Memory 365 DAY</h1>
+    <div class="gallery">
+        <div class="memory" onclick="openLightbox('./img365/mar.png')">
+            <img src="./img365/mar.png" alt="Mar 2024">
+            <div class="month">Mar 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/apr.JPG')">
+            <img src="./img365/apr.JPG" alt="Apr 2024">
+            <div class="month">Apr 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/may.png')">
+            <img src="./img365/may.png" alt="May 2024">
+            <div class="month">May 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/jun.png')">
+            <img src="./img365/jun.png" alt="Jun 2024">
+            <div class="month">Jun 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/jul.jpg')">
+            <img src="./img365/jul.jpg" alt="Jul 2024">
+            <div class="month">Jul 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/aug.JPG')">
+            <img src="./img365/aug.JPG" alt="Aug 2024">
+            <div class="month">Aug 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/sep.JPG')">
+            <img src="./img365/sep.JPG" alt="Sep 2024">
+            <div class="month">Sep 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/oct.jpg')">
+            <img src="./img365/oct.jpg" alt="Oct 2024">
+            <div class="month">Oct 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/nov.png')">
+            <img src="./img365/nov.png" alt="Nov 2024">
+            <div class="month">Nov 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/dec.JPG')">
+            <img src="./img365/dec.JPG" alt="Dec 2024">
+            <div class="month">Dec 2024</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/jan.jpeg')">
+            <img src="./img365/jan.jpeg" alt="Jan 2025">
+            <div class="month">Jan 2025</div>
+        </div>
+        <div class="memory" onclick="openLightbox('./img365/feb.jpeg')">
+            <img src="./img365/feb.jpeg" alt="Feb 2025">
+            <div class="month">Feb 2025</div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Preview">
+    </div>
+
+    <br>
+
+    <button id="Homepagelove" style="width: 80px; display: grid;"> HOME </button>
+
+
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.getElementById('lightbox').classList.add('show');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('show');
+        }
+        document.getElementById("Homepagelove").addEventListener("click", function () {
+    window.location.href = "./Homepage.html"; // ไปยังหน้า Homepage.html
+});
+    </script>
+
+</body>
+</html>

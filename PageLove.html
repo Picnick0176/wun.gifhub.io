@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageLove</title>
+    <link rel="stylesheet" href="./style365.css">
+</head>
+<body>
+
+    <h1>PageLove</h1>
+    <div class="container" id="pageList">
+        <!-- รายการลิงก์จะถูกเพิ่มที่นี่ -->
+    </div>
+
+    <button id="Homepagelove" style="width: 80px; display: grid;"> HOME </button>
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const pageList = document.getElementById("pageList");
+
+    // รายการตัวอย่าง (ชื่อ + ลิงก์)
+    let pages = [
+        { name: "เป็นแฟนกันเดอะ 03 Jun 24", link: "https://picnick0176.github.io/wun.gifhub.io/index2.html" },
+        { name: "เว็บนี้เพื่อเธอ", link: "https://picnick0176.github.io/wun.gifhub.io/%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%98%E0%B8%AD.html" },
+        { name: "ก๊อกๆ มีของมีส่งค้าบ", link: "https://picnick0176.github.io/wun.gifhub.io/wsn1.html" },
+        { name: "Tiktok สำหรับคนเก่ง", link: "https://picnick0176.github.io/wun.gifhub.io/tiktokforbaby.html" },
+        { name: "คลั่งรัก#01", link: "https://picnick0176.github.io/wun.gifhub.io/music.html" },
+        { name: "loveU6m", link: "https://picnick0176.github.io/wun.gifhub.io/loveU6m.html" },
+        { name: "giveforwsn", link: "https://picnick0176.github.io/wun.gifhub.io/giveofwun.html" },
+        { name: "gameforwsn", link: "https://picnick0176.github.io/wun.gifhub.io/gameforwsn.html" },
+        { name: "congratulation", link: "https://picnick0176.github.io/wun.gifhub.io/congratulation.html" },
+        { name: "มีพัสดุมาส่งค้าบ", link: "https://www.figma.com/exit?url=https%3A%2F%2Fpicnick0176.github.io%2Fwun.gifhub.io%2Fcartoon1.html" },
+        { name: "Valentine", link: "https://picnick0176.github.io/wun.gifhub.io/Valentine.html" },
+        { name: "LoveUNa", link: "https://picnick0176.github.io/wun.gifhub.io/LoveUNa.html" },
+        { name: "HBD", link: "https://picnick0176.github.io/wun.gifhub.io/HBD.html" },
+        { name: "9M", link: "https://www.figma.com/exit?url=https%3A%2F%2Fpicnick0176.github.io%2Fwun.gifhub.io%2F9m.html" },
+        { name: "7M", link: "https://picnick0176.github.io/wun.gifhub.io/7M.html" },
+        { name: "1080p", link: "https://picnick0176.github.io/wun.gifhub.io/1080p.html" }
+    ];
+
+    // ฟังก์ชันสร้างรายการที่กดลิงก์ได้
+    function createItem(name, link) {
+        let item = document.createElement("div");
+        item.classList.add("item");
+        item.innerHTML = `
+            <img src="./img365./img365icon.png" alt="icon"> 
+            <a href="${link}" target="_blank">${name}</a>
+        `;
+        pageList.appendChild(item);
+    }
+
+    // แสดงรายการทั้งหมดเมื่อโหลดหน้าเว็บ
+    pages.forEach(page => createItem(page.name, page.link));
+});
+document.getElementById("Homepagelove").addEventListener("click", function () {
+    window.location.href = "./Homepage.html"; // ไปยังหน้า Homepage.html
+});
+    </script>
+
+</body>
+</html>

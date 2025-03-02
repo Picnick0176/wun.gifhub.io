@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeLove</title>
+    <link rel="stylesheet" href="style365.css">
+</head>
+<body>
+    <div class="time">
+        <div class="boxtime">
+            <h2 id="texth2" style="color: #666;">Happy Anniversary 1 Year</h2>
+            
+            <div class="countdown">
+                <div>
+                    <span id="days">365</span>
+                    <span class="label">DAY</span>
+                </div>
+                <span>:</span>
+                <div>
+                    <span id="hours">06</span>
+                    <span class="label">Hrs</span>
+                </div>
+                <span>:</span>
+                <div>
+                    <span id="minutes">30</span>
+                    <span class="label">Mins</span>
+                </div>
+                <span>:</span>
+                <div>
+                    <span id="seconds">50</span>
+                    <span class="label">Secs</span>
+                </div>
+            </div>
+            <br>
+            <img src="./img365/1.png" id="timeimg">
+           
+            
+        </div>
+        <button href="" style="display: block;" id="next">🤍 START ></button>
+        <button href="/Homepage.html" style="display: none;" id="hometime">🤍 HOME ></button>
+    </div>
+    <script>
+        function updateElapsedTime(startDate) {
+            const now = new Date().getTime();
+            const elapsed = now - startDate;
+
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = String(days).padStart(3, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+        }
+
+        // กำหนดวันเริ่มต้น: 3 มีนาคม 2024 เวลา 00:00
+        const startDate = new Date("2024-03-03T00:00:00").getTime();
+
+        // อัปเดตทุกวินาที
+        setInterval(() => updateElapsedTime(startDate), 1000);
+
+        document.getElementById("next").addEventListener("click", function () {
+            let img = document.getElementById("timeimg");
+            let button = document.getElementById("next");
+            let button2 = document.getElementById("hometime");
+            let texth2 = document.getElementById("texth2");
+
+            // เปลี่ยนรูปภาพ
+            img.src = "./img365/2.png";
+            img.style.height = "458.5px";
+            img.style.width = "355px";
+
+            // เปลี่ยนข้อความของปุ่ม
+            button.style.display = "none";
+            button2.style.display = "block";
+            texth2.textContent = "How long Time Love 1Y";
+        });
+        document.getElementById("hometime").addEventListener("click", function () {
+        window.location.href = "./Homepage.html"; // ไปยังหน้า Homepage.html
+    });
+    </script>
+</body>
+</html>

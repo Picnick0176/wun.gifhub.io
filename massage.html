@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massage</title>
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+    <html lang="th">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat Header</title>
+        <link rel="stylesheet" href="./styles.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    
+        <header class="chat-header">
+           
+            <div class="profile">
+                <a href="./Homepage.html" style="color: #fff; text-decoration: none;"><</a>
+                <img src="./img365/profite.jpg" alt="Profile">
+                <div class="user-info">
+                    <div class="name">ลูกหมู 🐷</div>
+                    <div class="username">Patsakorn_nick</div>
+                </div>
+            </div>
+            <div class="actions">
+                <img src="./img365/Call.svg" alt="">
+                <img src="./img365/Video Call.svg" alt="">
+            </div>
+        </header>
+    
+        <div class="chat-container">
+            <!-- วันที่ -->
+            <div class="chat-date">3 Mar 2025</div>
+    
+            <!-- ข้อความแรก -->
+            <div class="message-box" id="b1">
+                <p>มอนิ่งค้าบคนเก่งของเค้าาาา</p>
+            </div>
+    
+            <!-- ข้อความยาว -->
+            <div class="message-box" id="b2">
+                <p>1 y หรือว่า 365 Day แน้วน้าดีใจมากๆเบบนะค้าบ
+                    ที่มีน้องวุ้น มะมีวันไหนที่ไม่มีฟามสุขเยยยยยยย
+                    ขอบคุณที่เข้ามาเป็นทุกๆอย่างให้กับเค้าน้าคนเก่ง
+                    เค้ารักน้องุว้นที่สุดเยยยยยยรักน้องวุ้นมากขึ้น
+                    ทุกๆวันน้า 1y มีทะเลาะกันบางไม่เข้าใจกันบาง
+                    แต่เราทั้งคู่ก็ปรับเข้าหากันน่ารักที่าุดเยยยย
+                    ขอให้หนูประสบความสำร็จให้ชีวิตและติดจุฬา
+                    แบบที่หนูฝันนะค้าบ น้องวุ้นสู้ๆน้า 🫶🏻</p>
+            </div>
+    
+            <!-- รูปภาพแถว -->
+            <div class="message-box images" id="b3">
+                <p>มีเค้าให้กำลังใจแบบนี้เสมอะคะ</p>
+            </div>
+    
+    
+            <!-- ข้อความสุดท้าย -->
+            <div class="message-box" style="background: none; padding:0px;" id="b4">
+                
+                <img src="./img365/IMG_6469.JPG" alt="img1" style="width: 240px; border-radius: 15px;">
+                <img class="profile-pic" src="./img365/profite.jpg" alt="Profile">
+            </div>
+    
+        </div>
+    
+    <footer></footer>
+</body>
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+body {
+    margin: 0;
+    padding-bottom: 50px; /* ป้องกันเนื้อหาถูก footer ทับ */
+    background-color: #FFCEE4;
+    flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+    header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FFB8D8; /* สีพื้นหลัง */
+    padding: 24px 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-image: url("img/footer.svg");
+    padding: 50px 0;
+   background-position: center;
+   background-repeat: no-repeat;
+    z-index: 1000;
+}
+.massagebox{
+    margin: 3%;
+    margin-top: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* สไตล์ Header */
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8cde3;
+    padding: 10px;
+    height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ปุ่มย้อนกลับ */
+.back-btn {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* ส่วนโปรไฟล์ */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* รูปโปรไฟล์ */
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* ข้อมูลผู้ใช้ */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 14px;
+}
+
+/* ชื่อ */
+.user-info .name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Username */
+.user-info .username {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* ไอคอนโทรและวิดีโอ */
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-right: 10%;
+}
+
+.actions i {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+/* กล่องแชท */
+.chat-container {
+    width: 90%;
+    max-width: 400px;
+    margin-top: 2%;
+    margin-left: 10%;
+    
+}
+
+/* วันที่ */
+.chat-date {
+    text-align: center;
+    color: #595959;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* กล่องข้อความ */
+.message-box {
+
+    background: white;
+    padding: 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    position: relative;
+}
+
+/* ข้อความ */
+.message-box p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* แถวรูปภาพ */
+.images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.images img {
+    width: 48%;
+    border-radius: 5px;
+}
+
+/* รูปโปรไฟล์เล็ก */
+.profile-pic {
+    position: absolute;
+    bottom: 6px;
+    left: -35px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+
+</style>
+<script>
+    window.onload = function() {
+      // Hide all messages initially
+      document.getElementById("b1").style.display = "none";
+      document.getElementById("b2").style.display = "none";
+      document.getElementById("b3").style.display = "none";
+      document.getElementById("b4").style.display = "none";
+  
+      // Define the notification sound
+      const notificationSound = new Audio('img/ig.mp3'); // ใส่พาธไฟล์เสียงที่คุณต้องการ
+  
+      // Show #b1 after 1 second and play notification sound
+      setTimeout(function() {
+        document.getElementById("b1").style.display = "block";
+        notificationSound.play(); // เล่นเสียงแจ้งเตือน
+      }, 1000);
+  
+      // Show #b2 after 2 seconds and play notification sound
+      setTimeout(function() {
+        document.getElementById("b2").style.display = "block";
+        notificationSound.play(); // เล่นเสียงแจ้งเตือน
+      }, 4000);
+  
+      // Show #b3 after 3 seconds and play notification sound
+      setTimeout(function() {
+        document.getElementById("b3").style.display = "block";
+        notificationSound.play(); // เล่นเสียงแจ้งเตือน
+      }, 5000);
+  
+      // Show #b4 after 4 seconds and play notification sound
+      setTimeout(function() {
+        document.getElementById("b4").style.display = "block";
+        notificationSound.play(); // เล่นเสียงแจ้งเตือน
+      }, 6000);
+    }
+  </script>
+  
+  
+</html>

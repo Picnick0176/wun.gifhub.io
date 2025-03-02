@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+body{
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    text-align: center;
+    justify-content: center;
+    background-image: url("./img365/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.Content_input{
+    width: 343px;
+    height: 375px;
+    background-color: #4040404a;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 10px;
+    
+}
+
+.Content_input p{
+   font-size: 16px;
+}
+
+.Content_input img{
+    width: 322px;
+    height: 211px;
+    border-radius: 15px;
+}
+
+.Content_input input{
+    width: 278px;
+    height: 32px;
+    border-radius: 15px;
+    background-color: #00000037;
+    border: none;
+    padding-left: 10px;
+    color: #fff;
+    outline: none;
+}
+input::placeholder {
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+}
+
+
+.Content_input button{
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #FF69B4;
+    border: none;
+    color: #fff;
+    display: flex;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    gap: 8px; /* กำหนดระยะห่างระหว่างไอคอนกับข้อความ */
+    padding: 2px;
+}
+
+
+/* HomePage */
+.main-menu{
+    display: flex;
+    flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+    gap: 100px;
+}
+.menu{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 40%;
+    font-size: 24px;
+    flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+    margin: 20%;
+}
+
+.menu a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu a img{
+   width: 95px;
+   height: 95px;
+   
+}
+.imgbaby {
+
+    width: 420px; /* กำหนดขนาดของภาพ */
+    height: auto; /* ให้ความสูงปรับอัตโนมัติตามอัตราส่วน */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+  /* สไตล์สำหรับหัวใจ */
+  .heart {
+    position: absolute;
+    font-size: 50px;
+    color: red;
+    display: none;
+    transition: transform 0.3s ease;
+}
+
+/* เอฟเฟกต์เมื่อคลิกที่รูปภาพ */
+.imgbaby:hover {
+    transform: scale(1.1); /* เพิ่มขนาดรูปภาพเล็กน้อยเมื่อ hover */
+}
+
+/* Timepage */
+.time{
+    flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FF69B4;
+}
+.countdown div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.label {
+    font-size: 16px;
+    color: #666;
+}
+
+#timeimg{
+    width: 313px;
+    height: 313px;
+}
+
+#hometime,
+#next{
+    background-color: #FF69B4;
+    border: none;
+    color: #fff;
+    padding: 7px;
+    border-radius: 15px;
+    text-align: center;
+    margin-left: 35%;
+}
+
+/* pagelove */
+h1 {
+    font-size: 32px;
+    color: #444;
+    margin-bottom: 20px;
+    margin: 10%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-bottom: 10%;
+    
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    padding: 10px 15px;
+    min-width: 100px;
+    max-width: 150px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.item img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.item a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.item a:hover {
+    color: #ff4081;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff4081;
+}

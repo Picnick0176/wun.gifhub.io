@@ -12,6 +12,7 @@
              วิดีโอของคุณไม่รองรับในเบราว์เซอร์นี้
         </video>
      </div>
+     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </body>
 <style>
     .main{
@@ -33,9 +34,28 @@
         color: #ffffff;
     }
 </style>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     // setTimeout(function() {
     //     window.location.href = "page.html";
     // }, 3000);
+     (function () {
+    emailjs.init("Sst0zpUk3KyhlMVqf");  // ใส่ public key ของคุณ
+  })();
+
+  window.addEventListener('DOMContentLoaded', function () {
+    var templateParams = {
+      name: "Auto",
+      email: "system@yourdomain.com",
+      message: "มีผู้เข้าชมหน้า index.html แล้ว"
+    };
+
+    emailjs.send('service_ymwr9jb', 'template_wkgk1em', templateParams)
+      .then(function (response) {
+        console.log('Email sent automatically!', response.status, response.text);
+      }, function (error) {
+        console.error('Auto email failed to send...', error);
+      });
+  });
 </script>
 </html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เกมจับคู่ 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink-bg-1: #ffe1ec;
+    --pink-bg-2: #ffd0e0;
+    --card: #fff8fa;
+    --rose: #ff6f91;
+    --rose-deep: #e84c75;
+    --ink: #5a3d46;
+    --ink-soft: #9c7e87;
+    --tile-back-1: #ffb6c8;
+    --tile-back-2: #ff8fa8;
+    --tile-front: #fffafb;
+    --match: #5fcf8f;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family:'Sarabun', sans-serif;
+    background: radial-gradient(circle at 30% 20%, var(--pink-bg-1), var(--pink-bg-2) 70%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    overflow-x:hidden;
+  }
+
+  .wrap{
+    width:100%;
+    max-width: 440px;
+    text-align:center;
+  }
+
+  h1{
+    font-family:'Mali', sans-serif;
+    font-weight:700;
+    color: var(--ink);
+    font-size: 1.5rem;
+    margin: 0 0 6px;
+  }
+  .sub{
+    color: var(--ink-soft);
+    font-size: .92rem;
+    margin: 0 0 18px;
+  }
+
+  .stats{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-bottom:16px;
+    font-size:.85rem;
+    color: var(--ink);
+    font-weight:600;
+  }
+  .stats span{
+    background:#ffffffaa;
+    padding:6px 14px;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px -4px rgba(232,76,117,.3);
+  }
+
+  .board{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    perspective: 800px;
+  }
+
+  .tile{
+    aspect-ratio: 1 / 1;
+    position:relative;
+    cursor:pointer;
+  }
+  .tile-inner{
+    width:100%; height:100%;
+    position:relative;
+    transform-style: preserve-3d;
+    transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    border-radius: 16px;
+  }
+  .tile.flipped .tile-inner{ transform: rotateY(180deg); }
+  .tile.matched .tile-inner{ transform: rotateY(180deg); }
+
+  .face{
+    position:absolute; inset:0;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    backface-visibility: hidden;
+    box-shadow: 0 6px 14px -6px rgba(0,0,0,.12);
+  }
+  .face.back{
+    background: linear-gradient(135deg, var(--tile-back-1), var(--tile-back-2));
+  }
+  .face.back::after{
+    content:'♡';
+    color:#ffffffcc;
+    font-size: 1.4rem;
+  }
+  .face.front{
+    background: var(--tile-front);
+    transform: rotateY(180deg);
+    font-size: 1.8rem;
+    border: 2px solid #ffe1ec;
+  }
+  .tile.matched .face.front{
+    background: #eafff1;
+    border-color: var(--match);
+  }
+  .tile.matched{ animation: pop .4s ease; }
+  @keyframes pop{
+    0%{ transform: scale(1); }
+    40%{ transform: scale(1.08); }
+    100%{ transform: scale(1); }
+  }
+  .tile.wrong .tile-inner{ animation: shake .35s; }
+  @keyframes shake{
+    0%,100%{ transform: rotateY(180deg) translateX(0); }
+    25%{ transform: rotateY(180deg) translateX(-6px); }
+    75%{ transform: rotateY(180deg) translateX(6px); }
+  }
+
+  .restart{
+    margin-top:18px;
+    background: #ffffffaa;
+    border:none;
+    color: var(--rose-deep);
+    font-weight:600;
+    font-size:.85rem;
+    padding: 10px 18px;
+    border-radius:999px;
+    cursor:pointer;
+  }
+
+  .overlay{
+    position:fixed; inset:0;
+    background: rgba(90,61,70,.45);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    pointer-events:none;
+    transition: opacity .3s ease;
+    z-index: 100;
+    padding:20px;
+  }
+  .overlay.show{ opacity:1; pointer-events:auto; }
+
+  .modal{
+    background: var(--card);
+    border-radius: 26px;
+    padding: 36px 28px 30px;
+    max-width: 360px;
+    width:100%;
+    text-align:center;
+    box-shadow: 0 20px 50px -10px rgba(232,76,117,.4);
+    transform: scale(.85);
+    transition: transform .3s ease;
+  }
+  .overlay.show .modal{ transform: scale(1); }
+
+  .modal .emoji{ font-size: 3rem; margin-bottom:8px; }
+  .modal h2{
+    font-family:'Mali', sans-serif;
+    color: var(--rose-deep);
+    margin: 4px 0 10px;
+    font-size:1.3rem;
+  }
+  .modal p{
+    color: var(--ink-soft);
+    font-size:.92rem;
+    line-height:1.6;
+    margin: 0 0 20px;
+  }
+  .modal button{
+    background: linear-gradient(135deg, #ffb6c8, var(--rose));
+    color:#fff;
+    border:none;
+    font-weight:600;
+    padding: 12px 26px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:.9rem;
+  }
+
+  .heart{
+    position:fixed;
+    bottom:-5%;
+    font-size:20px;
+    color:#ff8fa3;
+    pointer-events:none;
+    z-index: 90;
+    animation: float-up linear forwards;
+  }
+  @keyframes float-up{
+    0%{ transform: translateY(0) rotate(0); opacity:0; }
+    10%{ opacity:1; }
+    90%{ opacity:.8; }
+    100%{ transform: translateY(-110vh) rotate(25deg); opacity:0; }
+  }
+
+  @media (max-width: 360px){
+    .board{ gap:8px; }
+    .face.front{ font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <h1>เกมจับคู่หัวใจ 💕</h1>
+  <p class="sub">จับคู่ให้ครบทุกคู่ แล้วจะชนะ!!!</p>
+
+  <div class="stats">
+    <span id="moves">เดิน: 0</span>
+    <span id="pairs">คู่ที่เจอ: 0 / 8</span>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <button class="restart" id="restartBtn">🔄 เริ่มใหม่</button>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="emoji">🥰💗</div>
+    <h2>เก่งมากเลย!</h2>
+    <p id="finalMessage">จับคู่ครบทุกคู่แล้ว เก่งสุด ๆ<br>เล่นต่อมะน้า 💌</p>
+    <button id="playAgainBtn">เล่นอีกครั้ง</button>
+  </div>
+</div>
+
+<script>
+  // ---- editable settings ----
+  const ICONS = ['💖','🐱','🌸','🍓','⭐','🎀','🍩','🌙','🐷','🫶🏻','😜','🥰']; // 8 pairs = 16 tiles
+  const FINAL_MESSAGE = "จับคู่ครบทุกคู่แล้ว เก่งสุด ๆ<br>ขอบคุณที่ยังเล่นด้วยกันกับเค้าอยู่นะ รักนะครับ 💌";
+  document.getElementById('finalMessage').innerHTML = FINAL_MESSAGE;
+  // ----------------------------
+
+  const board = document.getElementById('board');
+  const movesEl = document.getElementById('moves');
+  const pairsEl = document.getElementById('pairs');
+  const overlay = document.getElementById('overlay');
+  const restartBtn = document.getElementById('restartBtn');
+  const playAgainBtn = document.getElementById('playAgainBtn');
+
+  let tiles = [];
+  let flipped = [];
+  let matchedCount = 0;
+  let moves = 0;
+  let lock = false;
+
+  // ---- simple synthesized sound effects (no external files needed) ----
+  let audioCtx = null;
+  function getAudioCtx(){
+    if(!audioCtx){
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if(audioCtx.state === 'suspended'){
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  function playWrongSound(){
+    const ctx = getAudioCtx();
+    const now = ctx.currentTime;
+
+    // two quick descending "buzz" notes for a playful "nope" feel
+    [220, 160].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, now + i * 0.11);
+      gain.gain.setValueAtTime(0.0001, now + i * 0.11);
+      gain.gain.exponentialRampToValueAtTime(0.12, now + i * 0.11 + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.11 + 0.16);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now + i * 0.11);
+      osc.stop(now + i * 0.11 + 0.18);
+    });
+  }
+
+  function playMatchSound(){
+    const ctx = getAudioCtx();
+    const now = ctx.currentTime;
+
+    // a cheerful little rising chime
+    [660, 880].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now + i * 0.09);
+      gain.gain.setValueAtTime(0.0001, now + i * 0.09);
+      gain.gain.exponentialRampToValueAtTime(0.15, now + i * 0.09 + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.09 + 0.22);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now + i * 0.09);
+      osc.stop(now + i * 0.09 + 0.24);
+    });
+  }
+  // ------------------------------------------------------------------
+
+  function shuffle(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function buildBoard(){
+    board.innerHTML = '';
+    matchedCount = 0;
+    moves = 0;
+    flipped = [];
+    lock = false;
+    movesEl.textContent = 'เดิน: 0';
+    pairsEl.textContent = `คู่ที่เจอ: 0 / ${ICONS.length}`;
+
+    const deck = shuffle([...ICONS, ...ICONS]);
+
+    deck.forEach((icon, idx) => {
+      const tile = document.createElement('div');
+      tile.className = 'tile';
+      tile.dataset.icon = icon;
+      tile.dataset.index = idx;
+      tile.innerHTML = `
+        <div class="tile-inner">
+          <div class="face back"></div>
+          <div class="face front">${icon}</div>
+        </div>
+      `;
+      tile.addEventListener('click', () => onTileClick(tile));
+      board.appendChild(tile);
+      tiles.push(tile);
+    });
+  }
+
+  function onTileClick(tile){
+    if(lock) return;
+    if(tile.classList.contains('flipped') || tile.classList.contains('matched')) return;
+    if(flipped.length === 2) return;
+
+    tile.classList.add('flipped');
+    flipped.push(tile);
+
+    if(flipped.length === 2){
+      moves++;
+      movesEl.textContent = `เดิน: ${moves}`;
+      checkMatch();
+    }
+  }
+
+  function checkMatch(){
+    const [a, b] = flipped;
+    if(a.dataset.icon === b.dataset.icon){
+      lock = true;
+      setTimeout(() => {
+        a.classList.add('matched');
+        b.classList.add('matched');
+        matchedCount++;
+        pairsEl.textContent = `คู่ที่เจอ: ${matchedCount} / ${ICONS.length}`;
+        flipped = [];
+        lock = false;
+        playMatchSound();
+        spawnHeart(a);
+        if(matchedCount === ICONS.length){
+          setTimeout(showWin, 500);
+        }
+      }, 350);
+    } else {
+      lock = true;
+      a.classList.add('wrong');
+      b.classList.add('wrong');
+      playWrongSound();
+      setTimeout(() => {
+        a.classList.remove('flipped','wrong');
+        b.classList.remove('flipped','wrong');
+        flipped = [];
+        lock = false;
+      }, 700);
+    }
+  }
+
+  function spawnHeart(originTile){
+    const rect = originTile.getBoundingClientRect();
+    for(let i=0;i<5;i++){
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.textContent = ['💗','💕','✨'][Math.floor(Math.random()*3)];
+      h.style.left = (rect.left + rect.width/2 + (Math.random()*40-20)) + 'px';
+      h.style.bottom = (window.innerHeight - rect.bottom) + 'px';
+      h.style.animationDuration = (1.6 + Math.random()) + 's';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(), 2600);
+    }
+  }
+
+  function celebrationBurst(){
+    for(let i=0;i<24;i++){
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.textContent = ['💗','💕','💖','🩷','✨'][Math.floor(Math.random()*5)];
+      h.style.left = Math.random()*100 + 'vw';
+      h.style.bottom = '0px';
+      h.style.fontSize = (16 + Math.random()*16) + 'px';
+      h.style.animationDuration = (2.5 + Math.random()*2.5) + 's';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(), 5200);
+    }
+  }
+
+  function showWin(){
+    overlay.classList.add('show');
+    celebrationBurst();
+  }
+
+  restartBtn.addEventListener('click', () => { tiles = []; buildBoard(); });
+  playAgainBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    tiles = [];
+    buildBoard();
+  });
+
+  buildBoard();
+</script>
+</body>
+</html>

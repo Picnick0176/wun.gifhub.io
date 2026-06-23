@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ขอโทษนะครับ 🥺</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink-bg-1: #ffe1ec;
+    --pink-bg-2: #ffd0e0;
+    --card: #fff8fa;
+    --rose: #ff6f91;
+    --rose-deep: #e84c75;
+    --ink: #5a3d46;
+    --ink-soft: #9c7e87;
+    --yellow: #ffd866;
+    --green: #5fcf8f;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family:'Sarabun', sans-serif;
+    background: radial-gradient(circle at 30% 20%, var(--pink-bg-1), var(--pink-bg-2) 70%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+    padding:24px;
+  }
+
+  /* floating hearts background */
+  .heart{
+    position:absolute;
+    bottom:-10%;
+    font-size:22px;
+    color:#ffffffaa;
+    animation: float-up linear infinite;
+    user-select:none;
+    pointer-events:none;
+  }
+  @keyframes float-up{
+    0%{ transform: translateY(0) rotate(0deg); opacity:0; }
+    10%{ opacity:.9; }
+    90%{ opacity:.7; }
+    100%{ transform: translateY(-110vh) rotate(25deg); opacity:0; }
+  }
+
+  .card{
+    position:relative;
+    background: var(--card);
+    border-radius: 28px;
+    padding: 40px 32px 36px;
+    max-width: 380px;
+    width:100%;
+    text-align:center;
+    box-shadow: 0 20px 50px -10px rgba(232,76,117,.25), 0 4px 14px rgba(0,0,0,.04);
+    border: 1px solid #ffffff;
+    transition: transform .25s ease;
+  }
+  .card.shake{ animation: shake .4s; }
+  @keyframes shake{
+    0%,100%{ transform: translateX(0); }
+    20%{ transform: translateX(-8px) rotate(-1deg); }
+    40%{ transform: translateX(7px) rotate(1deg); }
+    60%{ transform: translateX(-5px); }
+    80%{ transform: translateX(4px); }
+  }
+
+  .mascot{
+    width: 150px;
+    height: 110px;
+    margin: 0 auto 18px;
+    position:relative;
+  }
+
+  .heading{
+    font-family:'Mali', sans-serif;
+    font-weight:700;
+    font-size: 1.45rem;
+    color: var(--ink);
+    margin: 0 0 8px;
+    line-height:1.4;
+  }
+  .heading .stage2{ display:none; }
+
+  .subtext{
+    font-size: .92rem;
+    color: var(--ink-soft);
+    margin: 0 0 26px;
+    line-height:1.6;
+  }
+  .subtext .stage2{ display:none; }
+
+  .btn-row{
+    position:relative;
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    min-height: 56px;
+  }
+
+  button{
+    font-family:'Sarabun', sans-serif;
+    font-weight:600;
+    font-size: .95rem;
+    border:none;
+    border-radius: 999px;
+    padding: 14px 22px;
+    cursor:pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  button:active{ transform: scale(.96); }
+
+  .btn-yes{
+    background: linear-gradient(135deg, #ffb6c8, var(--rose));
+    color:#fff;
+    box-shadow: 0 8px 18px -6px rgba(232,76,117,.55);
+    flex: 1 1 auto;
+  }
+  .btn-yes:hover{ box-shadow: 0 10px 22px -6px rgba(232,76,117,.7); }
+
+  .btn-no{
+    background: #ffe6ec;
+    color: var(--rose-deep);
+    position: relative;
+    flex: 1 1 auto;
+  }
+  .btn-no.runaway{
+    position: fixed;
+    z-index: 50;
+    transition: top .18s ease, left .18s ease;
+  }
+
+  .counter{
+    margin-top: 14px;
+    font-size: .8rem;
+    color: var(--ink-soft);
+    min-height: 1.2em;
+  }
+
+  .success{
+    display:none;
+    text-align:center;
+  }
+  .success.show{ display:block; }
+  .success .big-emoji{ font-size: 3rem; margin-bottom: 6px; }
+  .success h3{
+    font-family:'Mali', sans-serif;
+    color: var(--rose-deep);
+    margin: 4px 0 6px;
+  }
+  .success p{ color: var(--ink-soft); font-size:.9rem; margin:0; }
+
+  .stage-default.hidden{ display:none; }
+
+  footer-note{ display:none; }
+
+  /* mascot drawing */
+  .body-blob{
+    position:absolute; left:50%; top:48%;
+    width:118px; height:78px;
+    background: #fdfdfd;
+    border-radius: 50% 50% 45% 45%;
+    transform: translate(-50%,-50%);
+    box-shadow: inset 0 -8px 12px -6px #f0e8ea;
+  }
+  .ear{
+    position:absolute; width:0; height:0;
+    border-style:solid;
+  }
+  .ear.left{
+    top:10px; left:50%;
+    margin-left:-44px;
+    border-width: 0 10px 26px 10px;
+    border-color: transparent transparent #fdfdfd transparent;
+    transform: rotate(-18deg);
+  }
+  .ear.right{
+    top:10px; left:50%;
+    margin-left:30px;
+    border-width: 0 10px 26px 10px;
+    border-color: transparent transparent #fdfdfd transparent;
+    transform: rotate(18deg);
+  }
+  .tail{
+    position:absolute; top:42%; left:50%;
+    margin-left:46px;
+    width:34px; height:14px;
+    background:#fdfdfd;
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(-25deg);
+  }
+  .face{
+    position:absolute; left:50%; top:46%;
+    transform: translate(-50%,-50%);
+    width:80px; height:50px;
+  }
+  .eye{
+    position:absolute; width:7px; height:9px;
+    background:var(--ink);
+    border-radius:50%;
+    top:6px;
+  }
+  .eye.left{ left:18px; }
+  .eye.right{ left:48px; }
+  .eye.happy{ display:none; }
+  .blush{
+    position:absolute; width:11px; height:6px;
+    background:#ffc9d4; border-radius:50%; top:18px; opacity:.9;
+  }
+  .blush.left{ left:6px; }
+  .blush.right{ left:60px; }
+  .mouth{
+    position:absolute; left:34px; top:18px;
+    width:10px; height:6px;
+    border: 2px solid var(--ink);
+    border-top:none;
+    border-radius: 0 0 8px 8px;
+  }
+  .tear{
+    position:absolute; width:4px; height:14px;
+    background: linear-gradient(#9ad7e8,#6fb8d6);
+    border-radius: 0 0 50% 50%;
+    top: 14px;
+    animation: drip 1.4s ease-in infinite;
+  }
+  .tear.left{ left:14px; }
+  .tear.right{ left:50px; animation-delay:.4s; }
+  @keyframes drip{
+    0%{ transform: translateY(0) scaleY(.6); opacity:0; }
+    20%{ opacity:1; transform: translateY(0) scaleY(1); }
+    100%{ transform: translateY(22px) scaleY(1); opacity:0; }
+  }
+  .pillow{
+    position:absolute; left:50%; bottom:8px;
+    transform: translateX(-50%);
+    width:120px; height:22px;
+    background: var(--yellow);
+    border-radius: 50%;
+  }
+
+  .mascot.happy .eye{ display:none; }
+  .mascot.happy .eye.happy{
+    display:block;
+    background:none;
+    width:10px; height:6px;
+    border:2px solid var(--ink);
+    border-top:none;
+    border-radius:0 0 10px 10px;
+  }
+  .mascot.happy .tear{ display:none; }
+  .mascot.happy .mouth{
+    width:14px; height:8px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .heart{ animation: none; display:none; }
+    .card.shake{ animation:none; }
+    .tear{ animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <div class="mascot" id="mascot">
+    <div class="pillow"></div>
+    <div class="tail"></div>
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="body-blob"></div>
+    <div class="face">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="eye happy left"></div>
+      <div class="eye happy right"></div>
+      <div class="blush left"></div>
+      <div class="blush right"></div>
+      <div class="mouth"></div>
+      <div class="tear left"></div>
+      <div class="tear right"></div>
+    </div>
+  </div>
+
+  <div id="stageDefault">
+    <h1 class="heading" id="heading">อ้วนๆมาง้อคนน่ารักของอ้วนๆค้าบ</h1>
+    <p class="subtext" id="subtext">คนน่ารักของอ้วนๆใจเย็นนะค้าบ เค้าขอโทษที่ใส่ใจหนูน้อยลงทำให้หนูไม่มีความสุขเลย😥อ้วนจะไม่ละเลยในการใส่ในความรู้สึกของหนูอีกแล้วค้าบหนูคือนัมเบอร์วันในใจเค้าเค้าคิดถึงรอยยิ้มหนูที่สุดแต่เค้าก็เป็นคนทำมันพังลง ขอโทษที่เค้าละเลยควมรู้สึกของหนูน้อยนะค้าบ ยิ้มเยอะๆนะคะคนเก่ง นิ้วก้อยอยู่หนายน้า</p>
+
+    <div class="btn-row">
+      <button class="btn-yes" id="btnYes">✅ เกี่ยวก้อยน้า</button>
+      <button class="btn-no" id="btnNo">ไม่ต้องมายุ่ง!!</button>
+    </div>
+
+    <div class="counter" id="counter"></div>
+  </div>
+
+  <div class="success" id="success">
+    <div class="big-emoji">🥰💗</div>
+    <h3>เย้! ขอบคุณที่้ให้อภัยเด็กอ้วนคนนี้นะค้าบ</h3>
+    <p>เค้าจะดูแลหัวใจดวงนี้ให้ดีที่สุดเยยยค้าบ เค้ากอดๆแน่นๆนะค้าบเห็นข้อความนี้แล้วตอบเค้าในแชทหน่อยน้าให้ตอบว่า ไม่ต้องมายุ่ง!!!</p>
+  </div>
+</div>
+
+<script>
+  const btnNo = document.getElementById('btnNo');
+  const btnYes = document.getElementById('btnYes');
+  const card = document.getElementById('card');
+  const mascot = document.getElementById('mascot');
+  const stageDefault = document.getElementById('stageDefault');
+  const success = document.getElementById('success');
+  const counter = document.getElementById('counter');
+  const heading = document.getElementById('heading');
+  const subtext = document.getElementById('subtext');
+
+  const dodgeLines = [
+    "เปล่า ๆ มือลั่น 🙈",
+    "โอ๋ๆ คิดดีๆก่อนค้าบ",
+    "จับไม่ได้หรอกก แบร้",
+    "ใจอ่อนนะคะ 🥺",
+    "น้าค้าบ คนเก่ง🥺"
+  ];
+  let dodgeCount = 0;
+
+  function moveButtonAway(btn, evt){
+    const rect = btn.getBoundingClientRect();
+    btn.classList.add('runaway');
+
+    const margin = 16;
+    const maxX = window.innerWidth - rect.width - margin;
+    const maxY = window.innerHeight - rect.height - margin;
+
+    let newX = Math.random() * maxX;
+    let newY = Math.random() * maxY;
+
+    // try to keep it away from the pointer if we know where it is
+    if(evt){
+      const px = evt.clientX, py = evt.clientY;
+      for(let i=0; i<6; i++){
+        const dist = Math.hypot(newX - px, newY - py);
+        if(dist > 160) break;
+        newX = Math.random() * maxX;
+        newY = Math.random() * maxY;
+      }
+    }
+
+    btn.style.left = newX + 'px';
+    btn.style.top = newY + 'px';
+  }
+
+  function dodge(evt){
+    dodgeCount++;
+    moveButtonAway(btnNo, evt);
+    card.classList.remove('shake');
+    void card.offsetWidth; // restart animation
+    card.classList.add('shake');
+
+    const line = dodgeLines[Math.min(dodgeCount - 1, dodgeLines.length - 1)];
+    counter.textContent = `กดไม่ได้แล้วครั้งที่ ${dodgeCount} — ${line}`;
+  }
+
+  btnNo.addEventListener('mouseenter', dodge);
+  btnNo.addEventListener('touchstart', (e) => { e.preventDefault(); dodge(e.touches[0]); }, {passive:false});
+  btnNo.addEventListener('click', (e) => { e.preventDefault(); dodge(e); });
+
+  btnYes.addEventListener('click', () => {
+    stageDefault.style.display = 'none';
+    success.classList.add('show');
+    mascot.classList.add('happy');
+    spawnConfettiHearts();
+  });
+
+  function spawnConfettiHearts(){
+    for(let i=0;i<14;i++){
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.textContent = ['💗','💕','💖','🩷'][Math.floor(Math.random()*4)];
+      h.style.left = Math.random()*100 + 'vw';
+      h.style.fontSize = (14 + Math.random()*18) + 'px';
+      h.style.animationDuration = (3 + Math.random()*3) + 's';
+      h.style.color = ['#ff8fa3','#ffd1dc','#ff6f91'][Math.floor(Math.random()*3)];
+      h.style.opacity = '1';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(), 6500);
+    }
+  }
+
+  // ambient background hearts
+  function ambientHeart(){
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.textContent = '♡';
+    h.style.left = Math.random()*100 + 'vw';
+    h.style.fontSize = (14 + Math.random()*16) + 'px';
+    h.style.animationDuration = (6 + Math.random()*5) + 's';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(), 12000);
+  }
+  setInterval(ambientHeart, 900);
+  for(let i=0;i<5;i++) setTimeout(ambientHeart, i*200);
+</script>
+</body>
+</html>
